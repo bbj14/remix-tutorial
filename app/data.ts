@@ -79,10 +79,12 @@ export async function createEmptyContact() {
 }
 
 export async function getContact(id: string) {
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return fakeContacts.get(id);
 }
 
 export async function updateContact(id: string, updates: ContactMutation) {
+  await new Promise((resolve) => setTimeout(resolve, 500));
   const contact = await fakeContacts.get(id);
   if (!contact) {
     throw new Error(`No contact found for ${id}`);
